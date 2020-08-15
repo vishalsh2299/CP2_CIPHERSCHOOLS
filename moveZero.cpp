@@ -1,16 +1,20 @@
- void moveZeroes(vector<int>& nums) {
-        int c=0;
-        vector<int> a;
-        for(int i=0;i<nums.size();i++)
+void moveZeroes(vector<int> &nums)
+{
+    int c = 0, j = 0, n = nums.size();
+
+    for (int i = 0; i < n; i++)
+    {
+        if (nums[i] != 0)
         {
-           if(nums[i] != 0){
-               a.push_back(nums[i]);
-           }else c++;
+            nums[j] = nums[i];
+            j++;
         }
-        
-        while(c){
-            a.push_back(0);
-            c--;
-        }
-        nums = a;
+        else
+            c++;
     }
+
+    for (int i = n - c; i < n; i++)
+    {
+        nums[i] = 0;
+    }
+}
