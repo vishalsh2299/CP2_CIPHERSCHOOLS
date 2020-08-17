@@ -1,3 +1,8 @@
+int min(int a, int b)
+{
+    return (a < b ? a : b);
+}
+
 int numSquares(int n)
 {
 
@@ -11,7 +16,7 @@ int numSquares(int n)
 
     for (int i = 4; i <= n; i++)
     {
-        dp[i] = i; // max initila value
+        dp[i] = i; // max initial value
         for (int x = 1; x <= ceil(sqrt(i)); x++)
         {
             int temp = x * x;
