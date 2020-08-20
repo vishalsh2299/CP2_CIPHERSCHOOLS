@@ -1,0 +1,24 @@
+ bool hasCycle(ListNode *head) {
+        
+        ListNode* first= head;
+        ListNode* second = head;
+        
+        while(second!=NULL && second->next!=NULL){
+            first = first->next;
+            second = second->next->next;
+            if(first == second) return true;
+        }
+        return false;
+        
+//         map<ListNode*,int> m;
+//         int pos=0;
+        
+//         while(temp!=NULL)
+//         {
+//             if(m[temp] == 1) return true;
+//             m[temp]++;
+//             temp = temp->next;
+//             pos++;
+//         }
+//         return false;
+    }
