@@ -1,18 +1,33 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 
 int main()
 {
     int a[] = {2, 7, 9, 5, 8, 7, 4};
-    int k=5;
-    int n = sizeof(a)/sizeof(a[0]);
+    int k = 5;
+    int n = sizeof(a) / sizeof(a[0]);
 
-    int i=0,j=n-1,swp=0;
+    int count = 0;
+    for (int i = 0; i < n; ++i)
+        if (arr[i] <= k)
+            ++count;
 
-    while(i<j){
-        if(a[i] <= k) i++;
-        if(a[j] <= k){swp++; j--;}
-        else j--;
+    int bad = 0;
+    for (int i = 0; i < count; ++i)
+        if (arr[i] > k)
+            ++bad;
+
+    int ans = bad;
+    for (int i = 0, j = count; j < n; ++i, ++j)
+    {
+
+        if (arr[i] > k)
+            --bad;
+
+        if (arr[j] > k)
+            ++bad;
+
+        ans = min(ans, bad);
     }
-    cout<<swp;
+    cout << ans;
 }
